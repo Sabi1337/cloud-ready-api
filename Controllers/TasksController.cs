@@ -1,18 +1,28 @@
 using Microsoft.AspNetCore.Mvc;
 
-[ApiController]
-[Route("api/[controller]")]
-public class TasksController : ControllerBase
+namespace CloudReadyApi.Controllers
 {
-    private static readonly List<string> Tasks = new();
-
-    [HttpGet]
-    public IEnumerable<string> Get() => Tasks;
-
-    [HttpPost]
-    public IActionResult Add([FromBody] string task)
+    [ApiController]
+    [Route("api/[controller]")]
+    public class TasksController : ControllerBase
     {
-        Tasks.Add(task);
-        return Ok();
+        private static readonly List<string> _tasks = new();
+
+        [HttpGet]
+        public IEnumerable<string> Get() => _tasks;
+
+        [HttpPost]
+        public IActionResult AddTask([FromBody] string task)
+        {
+            _tasks.Add(task);
+            return Created("", task);
+        }
+
+        [HttpDelete]
+        public IActionResult ClearTasks()
+        {
+            _tasks.Clear();
+            return NoContent();
+        }
     }
 }
