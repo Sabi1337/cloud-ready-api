@@ -27,9 +27,13 @@ curl https://cloud-ready-api.onrender.com/api/tasks
 ```
 ### POST /api/tasks
 ```bash
-curl -X POST https://cloud-ready-api.onrender.com/api/tasks \
--H "Content-Type: application/json" \
--d "\"Neuer Task\""
+curl -Method POST https://cloud-ready-api.onrender.com/api/tasks `
+     -Headers @{ "Content-Type" = "application/json" } `
+     -Body '"Mein erster Task"'
+```
+### DELETE
+```bash
+Invoke-RestMethod -Uri "https://cloud-ready-api.onrender.com/api/tasks" -Method DELETE
 ```
 ## Lokal starten
 ```bash
