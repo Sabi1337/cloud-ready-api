@@ -19,11 +19,6 @@
 
 ---
 
-## Screenshot
-
-![Dashboard](6cfea93a-963f-4a82-8da9-e1b38934f48f.png)
-
----
 
 ## Quickstart
 
